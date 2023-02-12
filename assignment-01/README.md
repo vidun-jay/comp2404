@@ -1,5 +1,4 @@
-###Preamble
-
+### Preamble
 **Name:** Vidun Jayakody
 **Student ID:** 101224988
 **Source Files**:
@@ -15,7 +14,7 @@
 - `Room.cc`
 - `Room.h`
 
-###Compilation and Launching
+### Compilation and Launching
 To compile and run the program, `cd` into the working directory and run:
 ```make assignment1 && ./assignment1```
 This will both compile and run the program.
