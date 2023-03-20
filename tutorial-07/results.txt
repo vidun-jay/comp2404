@@ -1,0 +1,32 @@
+***************************************************************************
+* Unzipping *.zip
+***************************************************************************
+
+***************************************************************************
+* Compilation
+***************************************************************************
+Executing: make clean
+Executing: make all
+\Franchise id test
+
+Executing: ./test
+An exception occurred
+./test test failed!
+
+Driver id test
+
+Executing: ./test
+An exception occurred
+./test test failed!
+
+Delivery test
+
+Executing: ./test
+An exception occurred
+./test test failed!
+
+
+***************************************************************************
+* Mark: 0/6
+***************************************************************************
+

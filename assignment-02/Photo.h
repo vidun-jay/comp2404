@@ -4,18 +4,20 @@
 
 class Photo {
 
-    /* Member Functions */
+    // Member Functions
     public:
-        /* Constructor */
+        // Constructors
         Photo(const string& title, const Date& date, const string& content);
-        // ? do I need a deconstructor
 
-        /* Functions */
-        bool equals(string title);
-        void print();
-        void display();
+        // Getters/Setters
+        string getTitle() const;
 
-    /* Member Variables */
+        // Member Functions
+        bool equals(const string& title) const;
+        void print() const;
+        void display() const;
+
+    // Member Variables
     private:
         string title;
         string content;

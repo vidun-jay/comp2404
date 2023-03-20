@@ -1,0 +1,90 @@
+***************************************************************************
+* Unzipping *.zip
+***************************************************************************
+
+***************************************************************************
+* Compilation
+***************************************************************************
+Executing: make clean
+Executing: make all
+
+Correct order test
+
+Executing: ./test
+Adding 5 Orders to q
+Adding Name: Abe
+Adding Name: Bae
+Adding Name: Cedric
+Adding Name: Deb
+Adding Name: Elise
+
+Removing 5 Orders from q
+Removing: Name: Abe
+Removing: Name: Bae
+Removing: Name: Cedric
+Removing: Name: Deb
+Removing: Name: Elise
+Removed successfully in order, deleting queue, then deleting orders...
+
+
+Test passed
+
+Edge case test
+
+Executing: ./test
+Queue is empty!
+Adding orders...
+Name: Abe
+Name: Bae
+Name: Cedric
+Name: Deb
+Name: Elise
+
+Removing all but one Order ...
+Removing: Name: Abe
+Removing: Name: Bae
+Removing: Name: Cedric
+Removing: Name: Deb
+
+Name: Elise
+ found in front, success!
+
+Adding back 4 Orders
+Name: Abe
+Name: Bae
+Name: Cedric
+Name: Deb
+
+Name: Elise
+ found in front, success!
+
+Removing all Orders
+Name: Elise
+Name: Abe
+Name: Bae
+Name: Cedric
+Name: Deb
+
+peeking at first in queue...
+nullptr returned, success!
+
+Adding back 5 Orders
+
+Removing and printing everything in queue...
+Name: Abe
+Name: Bae
+Name: Cedric
+Name: Deb
+Name: Elise
+Tests complete, deleting queue
+
+Deleting orders...
+
+
+Test passed
+
+
+***************************************************************************
+* Mark: 6/6
+***************************************************************************
+

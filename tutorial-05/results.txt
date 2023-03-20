@@ -1,0 +1,34 @@
+***************************************************************************
+* Unzipping *.zip
+***************************************************************************
+
+***************************************************************************
+* Compilation
+***************************************************************************
+Executing: make clean
+Executing: make all
+make: non-zero exit status 2
+
+Testing Album class
+
+Executing: ./test
+An exception occurred
+./test test failed!
+
+Testing Album destructor
+
+Executing: valgrind ./test
+An exception occurred
+valgrind ./test test failed!
+
+Testing Album deep copy
+
+Executing: ./test
+An exception occurred
+./test test failed!
+
+
+***************************************************************************
+* Mark: 0/10
+***************************************************************************
+

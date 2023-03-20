@@ -3,33 +3,51 @@
 /***************
  * CONSTRUCTOR *
  ***************/
-// ? Do I need to use member initializer syntax?
+
+/**
+ * @brief Creates a new `Photo` object
+ *
+ */
 Photo::Photo(const string& title, const Date& date, const string& content) {
     this->title = title;
     this->date = date;
     this->content = content;
 }
 
-/*************
- * FUNCTIONS *
- *************/
+/*******************
+ * GETTERS/SETTERS *
+ *******************/
 
 /**
- * Check if title parameter is equal title member variable
+ * @brief Gets the value of title
+ */
+string Photo::getTitle() const { return this->title; }
+
+/********************
+ * MEMBER FUNCTIONS *
+ ********************/
+
+/**
+ * @brief Check if title parameter is equal to title member variable
  * @param title: title to check
  * @return true if equal,
  * @return false otherwise
  */
-bool Photo::equals(string title) { return this->title == title; }
+bool Photo::equals(const string& title) const { return this->title == title; }
 
-/** Prints out the Photo metadata (not including the content) */
-void Photo::print() {
-    cout << "Title:" << this->title;
-    cout << "Date: " << this->date.getMonthName() << " " << this->date.getDay() << " " << this->date.getYear();
+/**
+ * @brief Prints out the Photo metadata (not including the content)
+ *
+ */
+void Photo::print() const {
+    cout << "Title:" << this->title << "Date: " << this->date.getMonthName() << this->date.getDay() << " " << this->date.getYear() << endl;
 }
 
-/** Prints out the Photo metadata *and* the content */
-void Photo::display() {
+/**
+ * @brief Prints out the Photo metadata *and* the content
+ *
+ */
+void Photo::display() const {
     this->print();
-    cout << this->content;
+    cout << this->content << endl;
 }

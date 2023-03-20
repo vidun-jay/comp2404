@@ -30,7 +30,7 @@ void TestControl::launch(){
 
 int TestControl::photoTest(){
     Photo* photos[6];
-    
+
     unordered_set<int> rphoto;    //random photos
     unordered_set<int> ralbum;   //random albums
 
@@ -40,15 +40,15 @@ int TestControl::photoTest(){
 
     ran(ralbum, 2, 5); // choose 2 out of 5 albums
     ran(rphoto, 3, 5); // choose 3 out of 5 photos
-    
+
     for (ialb = ralbum.begin(); ialb != ralbum.end(); ++ialb){
-        for (iphoto = rphoto.begin(); iphoto != rphoto.end(); ++iphoto){    
+        for (iphoto = rphoto.begin(); iphoto != rphoto.end(); ++iphoto){
             photos[count++] = new Photo( photoTitles[*ialb][*iphoto], Date(), photoContent[*ialb][*iphoto]);
             cout<<endl<<"Adding "<<photoTitles[*ialb][*iphoto] <<endl;
         }
 
     }
-    
+
     cout<<endl<<"Displaying photos:"<<endl<<endl;
     for (int i = 0; i < count; ++i){
         photos[i]->display(); cout<<endl;
@@ -58,20 +58,20 @@ int TestControl::photoTest(){
     cout <<"**MANUAL MARK** If all photos are displayed (should be 6), 2 marks. If there was some mistake, 1 mark, for major mistakes, 0 marks"<<endl;
     return 0;
 }
-		
+
 int TestControl::albumTest(){
     //unordered_set<int> rdescipt;  //random artist
     unordered_set<int> rphoto;    //random photo
     Album* albs[2];
     unordered_set<int>::iterator iphoto; //iterators for the sets
 
-    
+
     ran(rphoto, 2, 5); // choose 2 out of 5 photos
     for (int i = 0; i < 2; ++i){
         int alb = ran(0,1);  // choose a random album
         cout<<endl<<"Adding Album  "<<albumTitles[alb]<<endl;
         albs[i] = new Album(albumTitles[alb], descriptions[alb]);
-        for (iphoto = rphoto.begin(); iphoto != rphoto.end(); ++iphoto){ 
+        for (iphoto = rphoto.begin(); iphoto != rphoto.end(); ++iphoto){
                 cout<<"Adding Photo to Album: "<<albumTitles[alb]<<endl;
                 albs[i]->addPhoto(new Photo(photoTitles[alb][*iphoto], Date(), photoContent[alb][*iphoto]));
         }
@@ -105,7 +105,7 @@ int TestControl::albumTest(){
         delete albs[i];
     }
 
-    
+
     cout<<"Testing add Photo at index"<<endl;
     Album* album = new Album(albumTitles[0], descriptions[0]);
     Photo* photos[3];
@@ -129,7 +129,7 @@ int TestControl::albumTest(){
     int marks = 6;
     bool correct = true;
 
-    
+
     cout<<"Checking photos were added in order:"<<endl;
     Photo* photo = album->getPhoto(0);
     if (photo != photos[1]){
@@ -155,7 +155,7 @@ int TestControl::albumTest(){
     pressEnterToContinue();
     correct = true;
 
-    
+
 
     cout<<"Testing remove photo at index 1 (2 photos left):"<<endl;
     photo = album->removePhoto(1);
@@ -231,7 +231,7 @@ int TestControl::albumTest(){
     }else{
         cout<<"No photo found at index 0"<<endl;
     }
-   
+
     delete album;
     for (int i = 0; i < 3; ++i){
         delete photos[i];
@@ -239,7 +239,7 @@ int TestControl::albumTest(){
     cout<<"Marks earned: "<<(marks>0?marks:0)<<" out of 6, plus 4 manual marks (inspecting the print statements in the first 2 tests). Divide this mark by 2 for a mark out of 5."<<endl;
     return 0;
 }
-		
+
 int TestControl::albumArrayTest(){
     int points = 0;
 
@@ -253,12 +253,12 @@ int TestControl::albumArrayTest(){
     int count = 0;
     for (ialb = ralb.begin(); ialb!= ralb.end(); ++ialb){
         albs[count] = new Album(albumTitles[*ialb], descriptions[*ialb]);
-        for (iphoto = rphoto.begin(); iphoto != rphoto.end(); ++iphoto){ 
+        for (iphoto = rphoto.begin(); iphoto != rphoto.end(); ++iphoto){
                 albs[count]->addPhoto(new Photo(photoTitles[*ialb][*iphoto], Date(), photoContent[*ialb][*iphoto]));
         }
         ++count;
     }
-    
+
 
     cout<<"Adding Albums to AlbumArray"<<endl;
 
@@ -281,10 +281,10 @@ int TestControl::albumArrayTest(){
     for (int i = 0; i < aa->size(); ++i){
         aa->get(i)->print();
     }
-    
+
     Album* alb;
-    
-    
+
+
     cout<<endl<<"Test get(title):   "<<endl<<endl;
     bool foundall = true;
     for (int i = 0; i < aa->size(); ++i){
@@ -315,12 +315,12 @@ int TestControl::albumArrayTest(){
         cout<<"Success: Did not find the (non-existent) TOP SECRET album, +1 marks"<<endl;
         points += 1;
     }
-    
+
     cout<<endl<<"Test Album* get(int) (proper order): "<<endl<<endl;
 
     pressEnterToContinue();
     bool inorder = true;
-    
+
     Album *a1, *a2;
     for (int i = 1; i < aa->size(); ++i){
         a1 = aa->get(i-1);
@@ -388,7 +388,7 @@ int TestControl::albumArrayTest(){
     for (int i = 0; i < aa->size(); ++i){
         aa->get(i)->print();
     }
-    
+
     cout<<endl<<(inorder ? "In correct order": "Not in correct order")<<endl<<endl;
     if (inorder){cout<<"Delete successfull, +1 mark"<<endl; points += 1;}
 
@@ -406,7 +406,7 @@ int TestControl::albumArrayTest(){
        cout<<"Success, +1 mark"<<endl;
         points += 1;
     }
-    
+
     pressEnterToContinue();
 
     cout<<endl<<"Adding album back: "<<endl;
@@ -490,7 +490,7 @@ int TestControl::photoGramTest(){
     }
 
 
-    
+
 
     int photoIndex = ran(0,5);
     int albumIndex = ran(0,5);
@@ -563,7 +563,7 @@ int TestControl::clientTest(){
     }
 
     pressEnterToContinue();
-    
+
 
     cout<<endl<<"Testing displayLocal photo "<<photoTitles[albumIndex][photoIndex]
          <<" from "<<albumTitles[albumIndex]<<endl<<endl;
@@ -595,7 +595,7 @@ int TestControl::clientTest(){
     cout<<"**MANUAL MARK** Printing all albums from local memory, no photos (should be 1 album):"<<endl;
     client.printLocalAlbums();
     pressEnterToContinue();
-   
+
     client.displayLocalAlbums();
     cout<<endl<<"**MANUAL MARK** Displaying all photos from local memory (should be 1 album, 5 photos): "<<endl;
     pressEnterToContinue();
@@ -618,7 +618,7 @@ void TestControl::initialize(PhotoGram* photoGram){
         for (int j = 0; j < 5; ++j){
             photoGram->addPhoto(albumTitles[i], Photo(photoTitles[i][j], Date(),photoContent[i][j]));
         }
-        // for (iphoto = rphoto.begin(); iphoto != rphoto.end(); ++iphoto){ 
+        // for (iphoto = rphoto.begin(); iphoto != rphoto.end(); ++iphoto){
         //     photoGram->addPhoto(albumTitles[i], Photo(photoTitles[i][*iphoto], Date(),photoContent[i][*iphoto]));
         // }
     }
@@ -649,7 +649,7 @@ void pressEnterToContinue(){
     cout << "Press enter to continue..."<<endl;
     //cin.ignore(numeric_limits<streamsize>::max(), '\n');
     char c = cin.get();
-    while ( c != '\n') { 
+    while ( c != '\n') {
         c = cin.get();
     }
 }
@@ -828,7 +828,7 @@ R"(
 R"(
 ░▄▀▀▀▀▄░░▄▄
 █░░░░░░▀▀░░█░░░░░░▄░▄
-█░║░░░░██░████████████ 
+█░║░░░░██░████████████
 █░░░░░░▄▄░░█░░░░░░▀░▀
 ░▀▄▄▄▄▀░░▀▀
 )",
