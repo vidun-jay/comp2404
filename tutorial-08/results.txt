@@ -1,0 +1,91 @@
+***************************************************************************
+* Unzipping *.zip
+***************************************************************************
+
+***************************************************************************
+* Compilation
+***************************************************************************
+Executing: make clean
+Executing: make all
+Executing: ./test
+Photos taken between April 1, 2023 and April 2, 2023 are a match.Title: Bear Date: April 1 2023
+
+Should match
+Matched
+Test passed
+
+Photos taken between April 2, 2023 and April 3, 2023 are a match.Title: Bear Date: April 1 2023
+
+Should not match
+Did not match
+Test passed
+
+Testing date criteria passed
+
+
+
+Executing: ./test
+Matching category: AnimalTitle: Bear Date: April 1 2023
+
+Should match
+Matched
+Test passed
+
+Matching category: PeopleTitle: Bear Date: April 1 2023
+
+Should not match
+Did not match
+Test passed
+
+Testing category criteria passed
+
+
+
+Executing: ./test
+Matching category: AnimalPhotos taken between April 1, 2023 and April 2, 2023 are a match.Title: Bear Date: April 1 2023
+
+Should match
+Matched
+Test passed
+
+Matching category: AnimalPhotos taken between April 2, 2023 and April 3, 2023 are a match.Title: Bear Date: April 1 2023
+
+Should not match
+Did not match
+Test passed
+
+Matching category: PeoplePhotos taken between April 1, 2023 and April 2, 2023 are a match.Title: Bear Date: April 1 2023
+
+Should not match
+Did not match
+Test passed
+
+Matching category: PeoplePhotos taken between April 2, 2023 and April 3, 2023 are a match.Title: Bear Date: April 1 2023
+
+Should not match
+Did not match
+Test passed
+
+Testing artist or category criteria passed
+
+
+
+Executing: ./test
+Photos taken between April 1, 2023 and May 2, 2023 are a match.
+April 1, 2023, May 2, 2023 found in output, test passed
+
+Matching category: Animal
+'Animal' found in output, test passed
+
+Matching category: PeoplePhotos taken between April 1, 2023 and May 2, 2023 are a match.
+
+April 1, 2023, May 2, 2023 and 'People' found in output, test passed
+
+
+
+
+
+***************************************************************************
+* Mark: 12/12
+***************************************************************************
+
