@@ -4,25 +4,73 @@
 ***************************************************************************
 Executing: make clean
 Executing: make all
-make: non-zero exit status 2
 Executing: ./test
-An exception occurred
-./test test failed!
+Passing Students test...
+
+Printing students: 
+Student:  100111222  Zeek          GPA: 12.00
+Student:  100111999  Alice         GPA: 11.00
+Student:  100111448  Zack          GPA:  6.60
+Student:  100341455  Gary          GPA: 10.60
+Student:  100900000  Elsa          GPA: 11.60
+Student:  100700000  Emma          GPA:  9.40
+
+All Students pass, test passed
+
+Test passed
 Executing: ./test
-An exception occurred
-./test test failed!
+Sort by student number test...
+
+Printing students: 
+Student:  100111222  Zeek          GPA: 12.00
+Student:  100111448  Zack          GPA:  6.60
+Student:  100111994  Charlie       GPA:  5.00
+Student:  100111998  Duncan        GPA:  1.50
+Student:  100111999  Alice         GPA: 11.00
+Student:  100123998  Debbie        GPA:  2.40
+Student:  100222222  Tory          GPA:  5.00
+Student:  100341455  Gary          GPA: 10.60
+Student:  100700000  Emma          GPA:  9.40
+Student:  100900000  Elsa          GPA: 11.60
+
+Students sorted by student number, test passed
+
+Test passed
 Executing: ./test
-An exception occurred
-./test test failed!
+Sort by name test...
+
+Printing students: 
+Student:  100111999  Alice         GPA: 11.00
+Student:  100111994  Charlie       GPA:  5.00
+Student:  100123998  Debbie        GPA:  2.40
+Student:  100111998  Duncan        GPA:  1.50
+Student:  100900000  Elsa          GPA: 11.60
+Student:  100700000  Emma          GPA:  9.40
+Student:  100341455  Gary          GPA: 10.60
+Student:  100222222  Tory          GPA:  5.00
+Student:  100111448  Zack          GPA:  6.60
+Student:  100111222  Zeek          GPA: 12.00
+
+Students sorted by name, test passed
+
+Test passed
 Executing: ./test
-An exception occurred
-./test test failed!
+Highest gpa test...
+Student:  100111222  Zeek          GPA: 12.00
+
+has highest gpa, test passed
+
+Test passed
 Executing: ./test
-An exception occurred
-./test test failed!
+Student Gary found:
+Student:  100341455  Gary          GPA: 10.60
+
+Student: Kanye not found, test passed 
+
+Test passed
 
 
 ***************************************************************************
-* Mark: 0/10
+* Mark: 10/10
 ***************************************************************************
 

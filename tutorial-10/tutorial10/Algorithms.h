@@ -26,7 +26,7 @@ class Algorithms {
 		// v is a vector that is passed in.
 		// copy or add all passing Students to v
 		// passing == (gpa >= 6.0)
-		void getPassingStudents(vector<Student>& v);
+		void getPassingStudents(vector<Student>& smart_kids);
 
 		// v is a vector that is passed in.
 		// copy or add all Students to v in sorted order by

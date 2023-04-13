@@ -29,10 +29,42 @@ void Algorithms::addStudent(const string& number, const string& name, float gpa)
  * @param smart_kids: vector of kids with passing grades
  */
 void Algorithms::getPassingStudents(vector<Student>& smart_kids) {
-    for (const Student& student : smart_kids) {
+    for (const auto& student : students) {
         if (student.getGpa() >= 6.0)
             smart_kids.push_back(student);
     }
+}
+
+/**
+ * @brief Compares two students by name
+ *
+ * @param a: student a
+ * @param b: student b
+ * @return true if a < b;
+ * @return false otherwise
+ */
+bool compareName(const Student& a, const Student& b) { return a.getName() < b.getName(); }
+
+/**
+ * @brief Compares two students by number
+ *
+ * @param a: student a
+ * @param b: student b
+ * @return true if a < b;
+ * @return false otherwise
+ */
+bool compareNumber(const Student& a, const Student& b) { return a.getNumber() < b.getNumber(); }
+
+/**
+ * @brief Sort students by name
+ *
+ * @param v: students vector to store ordered students
+ */
+void Algorithms::sortByName(vector<Student>& v) {
+    for (const Student& student : students)
+        v.push_back(student);
+
+    sort(v.begin(), v.end(), compareName);
 }
 
 /**
@@ -40,23 +72,11 @@ void Algorithms::getPassingStudents(vector<Student>& smart_kids) {
  *
  * @param vector: students vector to store ordered students
  */
-void Algorithms::sortByNumber(vector<Student>& vector) {
-    vector = students;
-    sort (vector.begin(), vector.end(), [](const Student& student1, const Student& student2) {
-        return student1.getNumber() < student2.getNumber();
-    });
-}
+void Algorithms::sortByNumber(vector<Student>& v) {
+    for (const Student& student : students)
+        v.push_back(student);
 
-/**
- * @brief Add all students in sorted order by name
- *
- * @param vector: students vector to store ordered students
- */
-void Algorithms::sortByName(vector<Student>& vector) {
-    vector = students;
-    sort (vector.begin(), vector.end(), [](const Student& student1, const Student& student2) {
-        return student1.getName() < student2.getName();
-    });
+    sort(v.begin(), v.end(), compareNumber);
 }
 
 /**
@@ -66,32 +86,33 @@ void Algorithms::sortByName(vector<Student>& vector) {
  * @return true if successful;
  * @return false otherwise
  */
-bool Algorithms::highestGpa(vector<Student>::iterator& studentsIterator) {
+bool Algorithms::highestGpa(vector<Student>::iterator& stuIt) {
     if (students.empty()) return false;
+    stuIt = students.begin();
+    float max = stuIt->getGpa();
 
-    vector<Student>::iterator max = max_element(students.begin(), students.end(), [](const Student& student1, const Student& student2) {
-        return student1.getGpa() < student2.getGpa();
-    });
-
-    studentsIterator = max;
-    return true;
+    for (auto i = students.begin() + 1; i != students.end(); ++i) {
+        float curr = i->getGpa();
+        if (curr > max) {
+            max = curr;
+            stuIt = i;
+        }
+    } return true;
 }
 
 /**
- * @brief
+ * @brief Find student
  *
  * @param name: Looks for student with certain name
  * @param studentsIterator: iterator to search
  * @return true if successful;
  * @return false otherwise
  */
-bool Algorithms::findStudent(const string& name, vector<Student>::iterator& studentsIterator) {
-    vector<Student>::iterator iterator = find_if(students.begin(), students.end(), [&name](const Student& student) {
-        return student.getName() == name;
-    });
-
-    if (iterator != students.end()) {
-        studentsIterator = iterator;
-        return true;
+bool Algorithms::findStudent(const string& name, vector<Student>::iterator& stuIt) {
+    for (auto i = students.begin(); i != students.end(); ++i) {
+        if (i->getName() == name) {
+            stuIt = i;
+            return true;
+        }
     } return false;
 }
