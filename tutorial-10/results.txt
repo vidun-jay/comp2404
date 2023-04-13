@@ -1,0 +1,28 @@
+
+***************************************************************************
+* Compilation
+***************************************************************************
+Executing: make clean
+Executing: make all
+make: non-zero exit status 2
+Executing: ./test
+An exception occurred
+./test test failed!
+Executing: ./test
+An exception occurred
+./test test failed!
+Executing: ./test
+An exception occurred
+./test test failed!
+Executing: ./test
+An exception occurred
+./test test failed!
+Executing: ./test
+An exception occurred
+./test test failed!
+
+
+***************************************************************************
+* Mark: 0/10
+***************************************************************************
+
